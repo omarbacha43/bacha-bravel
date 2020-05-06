@@ -1,0 +1,26 @@
+{
+    "devDependencies": {
+        "@symfony/webpack-encore": "^0.29.0",
+        "bootstrap": "^4.4.1",
+        "core-js": "^3.0.0",
+        "jquery": "^3.5.1",
+        "jquery-migrate": "^3.3.0",
+        "node-sass": "^4.14.1",
+        "popper.js": "^1.16.1",
+        "regenerator-runtime": "^0.13.2",
+        "ts-loader": "^5.4.5",
+        "typescript": "^3.8.3",
+        "webpack-notifier": "^1.6.0"
+    },
+    "license": "UNLICENSED",
+    "private": true,
+    "scripts": {
+        "dev-server": "encore dev-server",
+        "dev": "encore dev",
+        "watch": "encore dev --watch",
+        "build": "encore production --progress"
+    },
+    "dependencies": {
+        "datatables.net-dt": "^1.10.20"
+    }
+}

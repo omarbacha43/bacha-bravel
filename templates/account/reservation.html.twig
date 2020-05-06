@@ -1,0 +1,78 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<section class="ftco-section goto-here ">
+    <div class="container">
+        <h1>{% trans %}Mes reservation{% endtrans %}</h1>
+        <div class="alert alert-info mt-3">
+            <p>{% trans %}Retrouver ici votre reservation {% endtrans %}</p>
+        </div>
+
+        {% for reservation in app.user.reservations %}
+
+            <div class="row mt-5">
+                <div class="col-4">
+                    <img src="{{ reservation.annonce.image }}" alt="photo de l'annonce" class="img-fluid">
+                </div>
+                <div class="col-8">
+                    <h4>{{ reservation.annonce.destDepart }} {{ reservation.annonce.destArrive }}</h4>
+                    <p>
+                        {% trans %}Réservation {% endtrans %}<strong>n° {{ reservation.id }}</strong><br>
+                        Du {{ reservation.annonce.dateHeureDepart | date('d/m/Y H:i') }} pour un prix de <strong>{{ reservation.annonce.prix }}€</strong>
+                    </p>
+
+                    <a href="{{ path('reservation_show', {'id':reservation.id}) }}" style="border-radius: 10%" class="btn btn-info">{% trans %}Plus d'infos{% endtrans %}</a>
+                </div>
+            </div>
+        {% endfor %}
+
+        <br><br><p></p>
+        <h1>{% trans %}Mes clients{% endtrans %}</h1>
+        <div class="alert alert-info mt-3">
+            <p>{% trans %}Retrouver ici vos clients {% endtrans %}</p>
+        </div>
+
+        {% for annonce in app.user.annonces %}
+            <div class="row mt-5">
+                <div class="col-4">
+                    <h4>Annonce numéro°{{ annonce.id }}</h4>
+
+                    <img src="{{ annonce.image }}" alt="photo de l'annonce" class="img-fluid">
+                </div>
+                <div class="col-8">
+                    <br>
+                    <h3>{{ annonce.destDepart }} {{ annonce.destArrive }}</h3>
+                    <p>
+                        {% trans %}Annonce {% endtrans %}<strong> n° {{ annonce.id }}</strong><br>
+                        Du {{ annonce.dateHeureDepart | date('d/m/Y H:i') }} pour un prix de <strong>{{ annonce.prix }}€</strong>
+                    </p>
+
+                    <a href="{{ path('annonce_show', {'id':annonce.id}) }}" style="border-radius:10% " class="btn btn-info">{% trans %}Plus d'infos{% endtrans %}</a>
+                </div>
+            </div>
+            <br><p></p>
+            <div class="row">
+                {% for reservation in annonce.reservations %}
+                    <div class="col-md-4 col-lg-8">
+                        <div class="property-wrap ftco-animate">
+                            <div class="img d-flex align-items-center justify-content-center avatar" style="background-image: url({{ reservation.utulisateur.photo }}); border-radius: 20%">
+                                <a href="{{ path('user_show', {'slug':reservation.utulisateur.slug}) }}">
+                                    <span class="ion-ios-link"></span>
+                                </a>
+                                <div class="list-agent d-flex align-items-center">
+                                    <a href="{{ path('user_show', {'slug':reservation.utulisateur.slug}) }}" class="agent-info d-flex align-items-center">
+                                        <div class="img-2 rounded-circle" style="background-image: url({{ reservation.utulisateur.photo }});"></div>
+                                    </a>
+                                </div>
+                            </div>
+                            <span style="border-radius: 10%" class="badge badge-info">{{ reservation.nbPlace }} place(s) reservé</span>
+                            <h3><a href="{{ path('user_show', {'slug':reservation.utulisateur.slug}) }}">{{ reservation.utulisateur.prenom }} {{ reservation.utulisateur.nom }}</a></h3>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endfor %}
+    </div>
+</section>
+
+{% endblock %}

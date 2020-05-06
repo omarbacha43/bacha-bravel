@@ -1,0 +1,382 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <section id="home-section" class="hero">
+        <img src="/images/blob-shape-3.svg" class="svg-blob" alt="Colorlib Free Template">
+        <div class="home-slider owl-carousel">
+            <div class="slider-item">
+                <div class="overlay"></div>
+                <div class="container-fluid p-0">
+                    <div class="row d-flex no-gutters slider-text align-items-center justify-content-end" data-scrollax-parent="true">
+                        <div class="one-third order-md-last">
+                            <div class="img" style="background-image:url(/images/bg_2.jpg);">
+                                <div class="overlay"></div>
+                            </div>
+                            <div class="vr"><span class="pl-3 py-4" style="background-image: url(/images/bg_2-2.jpg);">Afrique</span></div>
+                        </div>
+                        <div class="one-forth d-flex align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
+                            <div class="text">
+                                <span class="subheading pl-5">Discover Africa</span>
+                                <h1 class="mb-4 mt-3">Never Stop Exploring</span></h1>
+                                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country.</p>
+
+                                <p><a href="{{ path('destination_index') }}" class="btn btn-primary px-5 py-3 mt-3">Rechercher <span class="ion-ios-arrow-forward"></span></a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slider-item">
+                <div class="overlay"></div>
+                <div class="container-fluid p-0">
+                    <div class="row d-flex no-gutters slider-text align-items-center justify-content-end" data-scrollax-parent="true">
+                        <div class="one-third order-md-last">
+                            <div class="img" style="background-image:url(/images/amerique.jpg);">
+                                <div class="overlay"></div>
+                            </div>
+                            <div class="vr"><span class="pl-3 py-4" style="background-image: url(/images/bg_2-2.jpg);">Amerique</span></div>
+                        </div>
+                        <div class="one-forth d-flex align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
+                            <div class="text">
+                                <span class="subheading pl-5">Discover Africa</span>
+                                <h1 class="mb-4 mt-3">Never Stop Exploring</span></h1>
+                                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country.</p>
+
+                                <p><a href="{{ path('destination_index') }}" class="btn btn-primary px-5 py-3 mt-3">Rechercher <span class="ion-ios-arrow-forward"></span></a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slider-item">
+                <div class="overlay"></div>
+                <div class="container-fluid p-0">
+                    <div class="row d-md-flex no-gutters slider-text align-items-center justify-content-end" data-scrollax-parent="true">
+                        <div class="one-third order-md-last">
+                            <div class="img" style="background-image:url(/images/europe.jpg);">
+                                <div class="overlay"></div>
+                            </div>
+                            <div class="bg-primary">
+                                <div class="vr"><span class="pl-3 py-4" style="background-image: url(images/bg_1-1.jpg);">Europe</span></div>
+                            </div>
+                        </div>
+                        <div class="one-forth d-flex align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
+                            <div class="text">
+                                <span class="subheading pl-5">Discover Greece</span>
+                                <h1 class="mb-4 mt-3">Explore Your Travel Destinations like never before</h1>
+                                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country.</p>
+
+                                <p><a href="{{ path('destination_index') }}" class="btn btn-primary px-5 py-3 mt-3">Recherche <span class="ion-ios-arrow-forward"></span></a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slider-item">
+                <div class="overlay"></div>
+                <div class="container-fluid p-0">
+                    <div class="row d-md-flex no-gutters slider-text align-items-center justify-content-end" data-scrollax-parent="true">
+                        <div class="one-third order-md-last">
+                            <div class="img" style="background-image:url(/images/asie.jpg);">
+                                <div class="overlay"></div>
+                            </div>
+                            <div class="bg-primary">
+                                <div class="vr"><span class="pl-3 py-4" style="background-image: url(images/bg_1-1.jpg);">Asie</span></div>
+                            </div>
+                        </div>
+                        <div class="one-forth d-flex align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
+                            <div class="text">
+                                <span class="subheading pl-5">Discover Greece</span>
+                                <h1 class="mb-4 mt-3">Explore Your Travel Destinations like never before</h1>
+                                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country.</p>
+
+                                <p><a href="{{ path('destination_index') }}" class="btn btn-primary px-5 py-3 mt-3">Rechercher <span class="ion-ios-arrow-forward"></span></a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="ftco-section ftco-services-2" id="services-section">
+        <div class="container mt-3">
+            <div class="row justify-content-center pb-5">
+                <div class="col-md-12 heading-section text-center ftco-animate">
+                    <span class="subheading">Voyage &amp; Tourisme</span>
+                    <h2 class="mb-4">Nos Services</h2>
+                    <p>Notre aide en ligne vous assiste et répond à toutes les questions propres à votre voyage.<br>Elle vous guide pour le bon deroullement de votre vacance.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md d-flex align-self-stretch ftco-animate">
+                    <div class="media block-6 services text-center d-block">
+                        <div class="icon justify-content-center align-items-center d-flex"><span class="flaticon-gliding"></span></div>
+                        <div class="media-body">
+                            <h3 class="heading mb-3">Guide privé</h3>
+                            <p>Service de decouverte des diffèrents sites touristiques à l'international avec un accompagment sur mersures.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md d-flex align-self-stretch ftco-animate">
+                    <div class="media block-6 services text-center d-block">
+                        <div class="icon justify-content-center align-items-center d-flex"><span class="flaticon-world"></span></div>
+                        <div class="media-body">
+                            <h3 class="heading mb-3">Organisation de voyages</h3>
+                            <p>Réservation des vols à l'international et location des voitures</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md d-flex align-self-stretch ftco-animate">
+                    <div class="media block-6 services text-center d-block">
+                        <div class="icon justify-content-center align-items-center d-flex"><span class="flaticon-tour-guide"></span></div>
+                        <div class="media-body">
+                            <h3 class="heading mb-3">Accompagnement Hajj et OMRA</h3>
+                            <p>Nous accompagnons nos cher pèlerins au bon déroulement du voyage ainsi que les rites religieux sur place.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md d-flex align-self-stretch ftco-animate">
+                    <div class="media block-6 services text-center d-block">
+                        <div class="icon justify-content-center align-items-center d-flex"><span class="flaticon-tour-guide"></span></div>
+                        <div class="media-body">
+                            <h3 class="heading mb-3">Réservation Hotel</h3>
+                            <p>Nous faisons la réservation d'un (ôtel, location de vacances, complexe touristique, appartement ou d'une maison d’hôtes) à l'international</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container mt-3">
+            <div class="row justify-content-center pb-5">
+                <div class="col-md-12 heading-section text-center ftco-animate">
+                    <span class="subheading">Top Destination</span>
+                    <h2 class="mb-4">Meilleur destination</h2>
+                    <p> Ici vous trouverez les meilleur choix pour passer des bon vacance</p>
+                </div>
+            </div>
+            <div class="row">
+                {%  for destination in destinations %}
+                    <div class="col-md-6 col-lg-4 ftco-animate">
+                        <div class="project">
+                            <div class="img imgParent">
+                                <a href="{{ path('destination_show', {'id':destination.id}) }}"><img src="{{ destination.photo }}" class="img-fluid" alt="Colorlib Template"></a>
+                            </div>
+                            <div class="text">
+                                <h4 class="price"><span class="old-price mr-2">$500</span>$400</h4>
+                                <span>15 Days Tour</span>
+                                <h3>
+                                    <a href="{{ path('destination_show', {'id':destination.id}) }}">{{ destination.destination }}</a>
+                                </h3>
+                                <div class="star d-flex clearfix">
+                                    <div class="mr-auto float-left">
+                                        <span class="ion-ios-star"></span>
+                                        <span class="ion-ios-star"></span>
+                                        <span class="ion-ios-star"></span>
+                                        <span class="ion-ios-star"></span>
+                                        <span class="ion-ios-star"></span>
+                                    </div>
+                                    <div class="float-right">
+                                        <span class="rate"><a href="#">(120)</a></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="images/destination-1.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
+                                <span class="icon-expand"></span>
+                            </a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="container mt-3">
+            <div class="row justify-content-center pb-5">
+                <div class="col-md-12 heading-section text-center ftco-animate">
+                    <span class="subheading">Nos meilleur site touristique local</span>
+                    <h2 class="mb-4">Allez decouvrir</h2>
+                    <p>Nos meilleur selection</p>
+                </div>
+            </div>
+            <div class="row">
+                {% for site in sites %}
+                    <div class="col-md-6 col-lg-4 ftco-animate">
+                        <div class="project">
+                            <div class="img imgParent">
+                                <a href="{{ path('site_show', {'id':site.id}) }}"><img src="{{ site.photo }}" class="img-fluid" alt="Colorlib Template"></a>
+                            </div>
+                            <div class="text">
+                                <h4 class="price"><span class="old-price mr-2">$500</span>$400</h4>
+                                <span>{{ site.destination.destination }}</span>
+                                <h3><a href="{{ path('site_show', {'id':site.id}) }}">{{ site.titre }}</a></h3>
+                                <div class="star d-flex clearfix">
+                                    <div class="mr-auto float-left">
+                                        <span class="ion-ios-star"></span>
+                                        <span class="ion-ios-star"></span>
+                                        <span class="ion-ios-star"></span>
+                                        <span class="ion-ios-star"></span>
+                                        <span class="ion-ios-star"></span>
+                                    </div>
+                                    <div class="float-right">
+                                        <span class="rate"><a href="#">(120)</a></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="images/hotel-1.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
+                                <span class="icon-expand"></span>
+                            </a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+
+    <section class="ftco-section testimony-section">
+        <img src="images/blob-shape-2.svg" class="svg-blob" alt="Colorlib Free Template">
+        <img src="images/blob-shape-2.svg" class="svg-blob-2" alt="Colorlib Free Template">
+        <div class="container">
+            <div class="row justify-content-center pb-3">
+                <div class="col-md-7 text-center heading-section heading-section-white ftco-animate">
+                    <span class="subheading">Read testimonials</span>
+                    <h2 class="mb-4">What Client Says</h2>
+                </div>
+            </div>
+            <div class="row ftco-animate justify-content-center">
+                <div class="col-md-12">
+                    <div class="carousel-testimony owl-carousel ftco-owl">
+                        <div class="item">
+                            <div class="testimony-wrap text-center py-4 pb-5">
+                                <div class="user-img" style="background-image: url(images/person_1.jpg)">
+                    <span class="quote d-flex align-items-center justify-content-center">
+                      <i class="icon-quote-left"></i>
+                    </span>
+                                </div>
+                                <div class="text px-4 pb-5">
+                                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                                    <p class="name">Jeff Freshman</p>
+                                    <span class="position">Artist</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="testimony-wrap text-center py-4 pb-5">
+                                <div class="user-img" style="background-image: url(images/person_2.jpg)">
+                    <span class="quote d-flex align-items-center justify-content-center">
+                      <i class="icon-quote-left"></i>
+                    </span>
+                                </div>
+                                <div class="text px-4 pb-5">
+                                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                                    <p class="name">Jeff Freshman</p>
+                                    <span class="position">Artist</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="testimony-wrap text-center py-4 pb-5">
+                                <div class="user-img" style="background-image: url(images/person_3.jpg)">
+                    <span class="quote d-flex align-items-center justify-content-center">
+                      <i class="icon-quote-left"></i>
+                    </span>
+                                </div>
+                                <div class="text px-4 pb-5">
+                                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                                    <p class="name">Jeff Freshman</p>
+                                    <span class="position">Artist</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="testimony-wrap text-center py-4 pb-5">
+                                <div class="user-img" style="background-image: url(images/person_1.jpg)">
+                    <span class="quote d-flex align-items-center justify-content-center">
+                      <i class="icon-quote-left"></i>
+                    </span>
+                                </div>
+                                <div class="text px-4 pb-5">
+                                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                                    <p class="name">Jeff Freshman</p>
+                                    <span class="position">Artist</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="testimony-wrap text-center py-4 pb-5">
+                                <div class="user-img" style="background-image: url(images/person_3.jpg)">
+                    <span class="quote d-flex align-items-center justify-content-center">
+                      <i class="icon-quote-left"></i>
+                    </span>
+                                </div>
+                                <div class="text px-4 pb-5">
+                                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                                    <p class="name">Jeff Freshman</p>
+                                    <span class="position">Artist</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="ftco-section bg-light" id="blog-section">
+        <div class="container">
+            <div class="row justify-content-center mb-5 pb-5">
+                <div class="col-md-7 heading-section text-center ftco-animate">
+                    <span class="subheading">Blog</span>
+                    <h2 class="mb-4">Notre Blog</h2>
+                    <p>Ici, notre derniere actualités</p>
+                </div>
+            </div>
+            <div class="row d-flex">
+                {% for blog in blogs %}
+                    <div class="col-md-6 col-lg-4 d-flex ftco-animate">
+                        <div class="blog-entry justify-content-end">
+                            <a href="{{ path('blog_show', {'id':blog.id}) }}" class="block-20" style="background-image: url({{ blog.photo }}); width: 350px">
+                            </a>
+                            <div class="text float-right d-block">
+                                <div class="d-flex align-items-center pt-2 mb-4 topp">
+                                    <div class="one mr-2">
+                                        <span class="day">{{ blog.date | date('d') }}</span>
+                                    </div>
+                                    <div class="two">
+                                        <span class="yr">{{ blog.date | date('Y') }}</span>
+                                        <span class="mos">{{ blog.date | date('m')}}</span>
+                                    </div>
+                                </div>
+                                <h3 class="heading"><a href="{{ path('blog_show', {'id':blog.id}) }}">{{ blog.titre }}</a></h3>
+                                <p>{{ blog.introduction }}.</p>
+                                <div class="d-flex align-items-center mt-4 meta">
+                                    <p class="mb-0"><a href="{{ path('blog_show', {'id':blog.id}) }}" class="btn btn-primary">Voir plus <span class="ion-ios-arrow-round-forward"></span></a></p>
+                                    <p class="ml-auto mb-0">
+                                        <a href="{{ path('blog_show', {'id':blog.id}) }}" class="meta-chat"><span class="icon-chat"></span>{{ blog.commentaire | length }}</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="container-fluid px-0">
+            <div class="row ftco-animate justify-content-center no-gutters">
+                <div class="col-md-12">
+                    <div class="carousel-testimony owl-carousel ftco-owl">
+                        {% for photo in albums %}
+                            <div class="item">
+                                <div class="testimony-wrap text-center py-4 pb-5">
+                                    <a href="{{ photo.url }}" >
+                                        <img src="{{ photo.url }}" width=250px% height=250px>
+                                    </a>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

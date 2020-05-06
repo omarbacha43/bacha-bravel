@@ -1,0 +1,46 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}{% trans %}Gestion des Utulisateurs{% endtrans %}{% endblock %}
+
+{% block body %}
+    <h1 class="espace mt-lg-1"> <strong>Gestion des Utulisateurs</strong></h1>
+    <div class="container-fluid">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>{% trans %}Prénom{% endtrans %}</th>
+                <th>{% trans %}Nom{% endtrans %}</th>
+                <th>{% trans %}Telephone{% endtrans %}</th>
+                <th>{% trans %}Email{% endtrans %}</th>
+                <th>{% trans %}Profession{% endtrans %}</th>
+                <th>{% trans %}Actions{% endtrans %}</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% set users = pagination.data %}
+            {% for user in users %}
+                <tr>
+                    <td>{{ user.id }}
+                        {% for role in user.userRoles %}
+                            {% if role.title == 'ROLE_ADMIN' %}
+                                <span class="badge badge-primary">Admin</span>
+                            {% endif  %}
+                        {% endfor  %}
+                    </td>
+                    <td>{{ user.prenom }}</td>
+                    <td>{{ user.nom }}</td>
+                    <td>{{ user.telephone }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.profession }}</td>
+                    <td>
+                        <a href="{{ path('admin_user_delete', {'id':user.id}) }}" onclick="return confirm(`Voulez-vous vraiment supprimer cet utulisateur!`)" class="btn btn-danger"><i class="material-icons">delete</i></a>
+                        <a href="{{ path('admin_user_edit', {'id':user.id}) }}" class="btn btn-info"><i class="material-icons">edit</i></a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        {% include 'admin/partials/pagination.html.twig' with {'chemin': 'admin_user_index'} %}
+    </div>
+{% endblock %}

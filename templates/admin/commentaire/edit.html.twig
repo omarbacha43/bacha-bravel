@@ -1,0 +1,22 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}{% trans %}Edition du commentaire{% endtrans %} n° {{ commentaire.id }}{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h2 class="espace mt-lg-1"><strong>{% trans %}Modification du commentaire numéro{% endtrans %}°{{ commentaire.id }}</strong></h2>
+
+        <div class="alert alert-info">
+            <strong> {% trans %}Destination{% endtrans %} : </strong> {{ commentaire.site.destination.destination }}<br>
+            <strong> {% trans %}Site {% endtrans %} : </strong> {{ commentaire.site.titre }}<br>
+            <strong>{% trans %}Auteur{% endtrans %} : </strong> {{ commentaire.auteur }}<br>
+            <strong>{% trans %}Date de Création{% endtrans %} : </strong> {{ commentaire.createdAt|date('d/m/Y H:i') }}<br>
+            <strong>{% trans %}Note Attribué{% endtrans %} : </strong> {{ commentaire.note }}/5
+        </div>
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <button type="submit" class="btn btn-primary">{% trans %}Modifier{% endtrans %}</button>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}
+

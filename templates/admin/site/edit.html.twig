@@ -1,0 +1,63 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}{% trans %}Edition du site numéro{% endtrans %} {{ site.id }}{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h2 class="espace mt-lg-5"> <strong>Modification du site numéro °{{ site.id }} </strong></h2>
+        {{ form_start(form) }}
+        <div class="row">
+            <div class="col">
+                <div class="card bg-light" style="width: 900px">
+                    <div class="card-header">
+                        <h4 class="card-title">{% trans %}Réctifier le site{% endtrans %} ? </h4>
+                    </div>
+                    <div class="card-body">
+                        {{ form_widget(form) }}
+                        <button type="submit" class="btn btn-primary">
+                            {% trans %}Enregistrer les modifications{% endtrans %}
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card bg-light" style="width: 900px">
+                    <div class="card-header">
+                        <h4 class="card-title">{% trans %}Les hotels{% endtrans %}</h4>
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-hover">
+                            <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>{% trans %}Titre{% endtrans %}</th>
+                                <th>{% trans %}Auteur{% endtrans %}</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% set cpt = 0 %}
+                            {% for hotel in site.hotels %}
+                                {% set cpt = cpt +1 %}
+                                <tr>
+                                    <td>{{ hotel.id }}</td>
+                                    <td>{{ hotel.titre }}</td>
+                                    <td>{{ hotel.auteur }}</td>
+                                    <td>
+                                        <a href="{{ path('admin_hotel_edit', {'id':hotel.id}) }}"  class="btn btn-primary"><i class="material-icons">edit</i></a>
+                                        <a href="{{ path('admin_hotel_delete', {'id':hotel.id}) }}" onclick="return confirm(`Voulez-vous vraiment supprimer ce hotel!`)" class="btn btn-danger"><i class="material-icons">delete</i></a>
+                                    </td>
+
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {{ form_end(form) }}
+
+    </div>
+{% endblock %}
+

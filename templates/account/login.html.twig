@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Connexion au site{% endblock %}
+
+{% block body %}
+    <link rel="stylesheet" href="{{ asset('build/css/login.css') }}">
+
+    <section class="ftco-section ftco-no-pb ftco-no-pt ">
+            <br><br><div class="container mt-5 ">
+                {% if hasError %}
+                    <div class="alert alert-warning">Nom d'utulisateur ou mot de passe invalide</div>
+                {% endif %}
+                <div class="d-flex justify-content-center h-100 mt-5">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Connectez-vous ! </h3>
+                        </div>
+                        <div class="card-body">
+                            <form method="post">
+                                <div class="input-group form-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                    </div>
+                                    <input type="text" class="form-control" name="_username" value="{{ username }}" placeholder="Email">
+
+                                </div>
+                                <div class="input-group form-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                    </div>
+                                    <input type="password" class="form-control" name="_password" placeholder="password">
+                                </div>
+                                <div class="row align-items-center remember container">
+                                    <i class='fas fa-cash-register'> Envie de nous rejoindre ?</i>
+                                </div>
+                                <div class="form-group">
+                                    <input type="submit" value="Connexion" class="btn float-right btn-primary">
+                                </div>
+                            </form>
+                            <div class="card-footer">
+                                <div class="d-flex justify-content-center links">
+                                    <a href="{{ path('account_register') }}"> Créer un compte</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div><br>
+        </section>
+{% endblock %}

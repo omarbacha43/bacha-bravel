@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CompetenceController!{% endblock %}
+
+{% block body %}
+    <section class="ftco-counter img" id="section-counter">
+        <div class="container espace mt-lg-5">
+            <div class="col-md-8">
+                <div class="tab-content profile-tab" id="myTabContent">
+                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                        {% set user = app.user %}
+                        <h2><strong>Vos compétences :</strong></h2>
+                        <div class="row">
+                            {% for competence in user.competences %}
+                                <div class="col-md-6">
+                                    <label>{{ competence.titre }}</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>
+                                        <a href="{{ path('competence_delete', {'id':competence.id}) }}" onclick="return confirm(`Voulez-vous vraiment supprimer cette compétence !`)">supprimer</a>
+                                    </p>
+                                </div>
+                            {% endfor %}
+                            <div class="col-md-6">
+                                <h4><strong>Nouvelle compétence :</strong></h4>
+                                {{ form_start(form) }}
+                                {{ form_row(form.titre) }}
+                                <input type="submit" class="btn btn-primary" value="Ajouter">
+                                {{ form_end(form) }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

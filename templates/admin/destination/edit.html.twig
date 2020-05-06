@@ -1,0 +1,110 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}{% trans %}Edition de la destination numéro{% endtrans %} {{ destination.id }}{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h2 class="espace mt-lg-5"> <strong>Modification de la destination numéro °{{ destination.id }} </strong></h2>
+        {{ form_start(form) }}
+        <div class="row">
+            <div class="col">
+                <div class="card bg-light">
+                    <div class="card-header">
+                        <h4 class="card-title">{% trans %}Réctifier la destination{% endtrans %} ? </h4>
+                    </div>
+                    <div class="card-body">
+                        {{ form_widget(form) }}
+                        <button type="submit" class="btn btn-primary">
+                            {% trans %}Enregistrer les modifications{% endtrans %}
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card bg-light">
+                    <div class="card-header">
+                        <h4 class="card-title">{% trans %}Les sites touristiques{% endtrans %}</h4>
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-hover">                            <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>{% trans %}Titre{% endtrans %}</th>
+                                <th>{% trans %}Auteur{% endtrans %}</th>
+                                <th>{% trans %}Action{% endtrans %}</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% set cpt = 0 %}
+                            {% for site in destination.siteTouristiques %}
+                                {% set cpt = cpt +1 %}
+                                <tr>
+                                    <td>{{ site.id }}</td>
+                                    <td>{{ site.titre }}</td>
+                                    <td>{{ site.auteur }}</td>
+                                    <td>
+                                        <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal{{ cpt }}"><i class="material-icons">delete</i></a>
+                                        <a href="{{ path('admin_destination_edit', {'id':destination.id}) }}" class="btn btn-primary"><i class="material-icons">edit</i></a>
+                                    </td>
+
+                                </tr>
+                                <!-- Modal -->
+                                <div class="modal fade" id="exampleModal{{ cpt }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="alert alert-primary mt-3">
+                                                    <div class="col-md-12">
+                                                        <div class="tab-content profile-tab" id="myTabContent">
+                                                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                                                <h5><strong>Les hotels :</strong></h5>
+                                                                <div class="row">
+                                                                    {% for hotel in site.hotels %}
+                                                                        <div class="col-md-3">
+                                                                            {{ hotel.id }}
+                                                                            <label></label>
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                            {{ hotel.titre }}
+                                                                            <label></label>
+                                                                        </div>
+                                                                        <div class="col-md-2">
+                                                                            <p>
+                                                                                <a href="{{ path('admin_hotel_delete', {'id':hotel.id}) }}" onclick="return confirm(`Voulez-vous vraiment supprimer ce hotel!`)"><i class="material-icons">delete</i>
+                                                                                </a>
+                                                                            </p>
+                                                                        </div>
+                                                                    {% endfor %}
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+                                                <a href="{{ path('admin_site_delete', {'id':site.id}) }}" onclick="return confirm(`Voulez-vous vraiment supprimer ce site !`)" class="btn btn-danger">Supprimer</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {{ form_end(form) }}
+
+    </div>
+{% endblock %}
+

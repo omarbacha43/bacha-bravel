@@ -1,0 +1,56 @@
+{% set route_name = app.request.attributes.get('_route') %}
+
+<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light site-navbar-target" id="ftco-navbar">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{{ path('homepage') }}">BACHA TRAVEL</a>
+        <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="oi oi-menu"></span> Menu
+        </button>
+
+        <div class="collapse navbar-collapse" id="ftco-nav">
+            <ul class="navbar-nav ml-auto">
+                <li {% if route_name == "homepage" %} class="nav-item active" {% else %} class="nav-item" {% endif %}><a href="{{ path('homepage') }}" class="nav-link"><span>Acceuil</span></a></li>
+                <li {% if route_name == "about_index" %} class="nav-item active" {% else %} class="nav-item" {% endif %}><a href="{{ path('about_index') }}" class="nav-link"><span>À propos </span></a></li>
+                <li {% if route_name == "service_index" %} class="nav-item active" {% else %} class="nav-item" {% endif %}><a href="{{ path('service_index') }}" class="nav-link"><span>Service </span></a></li>
+                <li {% if route_name == "destination_index" %} class="nav-item active" {% else %} class="nav-item" {% endif %}><a href="{{ path('destination_index') }}" class="nav-link"><span>Destination</span></a></li>
+                <li {% if route_name == "site_index" %} class="nav-item active" {% else %} class="nav-item" {% endif %}><a href="{{ path('site_index') }}" class="nav-link"><span>Nos Sites </span></a></li>
+                <li {% if route_name == "blog_index" %} class="nav-item active" {% else %} class="nav-item" {% endif %}><a href="{{ path('blog_index') }}" class="nav-link"><span>Blog</span></a></li>
+                <li {% if route_name == "contact_create" %} class="nav-item active" {% else %} class="nav-item" {% endif %}><a href="{{ path('contact_create') }}" class="nav-link"><span>Contact</span></a></li>
+                {% if app.user %}
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dopdown-toggle" data-toggle="dropdown" id="accountDropdownLink">
+                            <img src="{{ app.user.photo }}"  class="avatar avatar-mini" alt="avatar de {{ app.user.prenom }}">
+                            <strong style="color: black;">{{ app.user.prenom }}</strong>
+                        </a>
+
+                        <div class="dropdown-menu dropdown-menu-right" aria-lebelledby="accountDropdownLink">
+                            <a href="{{ path('destination_create') }}" class="dropdown-item">Ajouter une destination</a>
+                            <a href="{{ path('site_create') }}" class="dropdown-item">Ajouter un site</a>
+                            <a href="{{ path('hotel_create') }}" class="dropdown-item">Ajouter un hotel</a>
+                            <a href="{{ path('album_create') }}" class="dropdown-item">Ajouter une photo</a>
+                            <a href="{{ path('blog_create') }}" class="dropdown-item">Ajouter un evenement</a>
+                            <div class="dropdown-divider"></div>
+                            <a href="{{ path('hotel_create') }}" class="dropdown-item">Les employés</a>
+                            <div class="dropdown-divider"></div>
+                            <a href="{{ path('account_index') }}" class="dropdown-item">Mon compte</a>
+                            <div class="dropdown-divider"></div>
+                            {% for role in app.user.roles  %}
+                                {% if role == 'ROLE_ADMIN' %}
+                                    <div class="dropdown-divider"></div>
+                                    <a href="{{ path('admin_home') }}" class="dropdown-item">Administration</a>
+                                {% endif %}
+                            {% endfor %}
+                            <div class="dropdown-divider"></div>
+                            <a href="{{ path('account_logout') }}" class="dropdown-item">Déconnexion</a>
+                        </div>
+                    </li>
+                    {% if app.session.has('messages') %}
+                        <li class="nav-item"><a href="{{ path('contact_index') }}" class="nav-link"><span class="badge badge-warning">{{ app.session.get('messages') | length }} messages</span></a></li>
+                    {% endif %}
+                {% else %}
+                    <li class="nav-item cta"><a href="{{ path('account_login') }}" class="nav-link">Connexion</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>

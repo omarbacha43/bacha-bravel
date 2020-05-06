@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="row">
+    <div class="container col-md-7">
+        <div class="bg-light p-4 p-md-7 contact-form">
+                {{ form_start(form) }}
+                <h2 class="form-title">Modification d'une destination </h2>
+                <div class="form-group">
+                    {{ form_row(form.destination) }}
+                </div>
+                <div class="form-group">
+                    {{ form_row(form.photo) }}
+                </div>
+                <div class="form-group">
+                    {{ form_row(form.prix) }}
+                </div>
+                <div class="form-group">
+                    {{ form_row(form.ancienPrix) }}
+                </div>
+                <div class="form-group">
+                    {{ form_row(form.favoris) }}
+                </div>
+                <div class="form-group">
+                    <input type="submit" name="submit" id="submit" class="form-submit" value="Enregistrer"/>
+                </div>
+                {{  form_end(form)}}
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,99 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contactez-nous ici !{% endblock %}
+
+{% block body %}
+
+    <section class="ftco-section contact-section ftco-no-pb" id="contact-section">
+        <div class="container">
+            <div class="row justify-content-center mb-5 pb-3">
+                <div class="col-md-7 heading-section text-center ftco-animate">
+                    <span class="subheading">Contact</span>
+                    <h2 class="mb-4">Nous contacter </h2>
+                    <p>Trouvez votre conseiller de voyages</p>
+                </div>
+            </div>
+
+            <div class="row block-9">
+                <div class="col-md-7 order-md-last d-flex">
+                    <div class="bg-light p-4 p-md-5 contact-form">
+                        {{ form_start(form) }}
+                        <div class="form-group">
+                            {{ form_row(form.nom) }}
+                        </div>
+                        <div class="form-group">
+                            {{ form_row(form.prenom) }}
+                        </div>
+                        <div class="form-group">
+                            {{ form_row(form.email) }}
+                        </div>
+                        <div class="form-group">
+                            {{ form_row(form.telephone) }}
+                        </div>
+                        <div class="form-group">
+                            {{ form_row(form.sujet) }}
+                        </div>
+                        <div class="form-group">
+                            {{ form_row(form.message) }}
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="Envoyer" class="btn btn-primary py-3 px-5">
+                        </div>
+                        {{ form_end(form) }}
+                    </div>
+
+                </div>
+
+                <div class="col-md-5 d-flex">
+                    <div class="row d-flex contact-info mb-5">
+                        <div class="col-md-12 ftco-animate">
+                            <div class="box p-2 px-3 bg-light d-flex">
+                                <div class="icon mr-3">
+                                    <span class="icon-map-signs"></span>
+                                </div>
+                                <div>
+                                    <h3 class="mb-3">Address</h3>
+                                    <p>Djibouti</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 ftco-animate">
+                            <div class="box p-2 px-3 bg-light d-flex">
+                                <div class="icon mr-3">
+                                    <span class="icon-phone2"></span>
+                                </div>
+                                <div>
+                                    <h3 class="mb-3">Numbero de contact</h3>
+                                    <p><a href="tel://1234567920">+253 21351000</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 ftco-animate">
+                            <div class="box p-2 px-3 bg-light d-flex">
+                                <div class="icon mr-3">
+                                    <span class="icon-paper-plane"></span>
+                                </div>
+                                <div>
+                                    <h3 class="mb-3">Email Address</h3>
+                                    <p><a href="mailto:info@yoursite.com">info@bacha-travel.com</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 ftco-animate">
+                            <div class="box p-2 px-3 bg-light d-flex">
+                                <div class="icon mr-3">
+                                    <span class="icon-globe"></span>
+                                </div>
+                                <div>
+                                    <h3 class="mb-3">Website</h3>
+                                    <p><a href="#">yoursite.com</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

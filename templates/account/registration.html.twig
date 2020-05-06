@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Inscription {% endblock %}
+
+{%  block body %}
+    <link rel="stylesheet" href="/registration/fonts/material-icon/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" href="/registration/css/styles.css">
+
+    <div class="main">
+        <section class="signup">
+            <!-- <img src="images/signup-bg.jpg" alt=""> -->
+            <div class="container">
+                <div class="signup-content">
+                    {{ form_start(form) }}
+                        <h2 class="form-title">Créer un compte</h2>
+                        <div class="form-group">
+                            {{ form_row(form.nom, {'label':false}) }}
+                        </div>
+                        <div class="form-group">
+                            {{ form_row(form.prenom, {'label':false}) }}
+                        </div>
+                        <div class="form-group">
+                            {{ form_row(form.email, {'label':false}) }}
+                        </div>
+                        <div class="form-group">
+                            {{ form_row(form.telephone, {'label':false}) }}
+                        </div>
+                        <div class="form-group">
+                            {{ form_row(form.profession, {'label':false}) }}
+                        </div>
+
+                        <div class="form-group">
+                            {{ form_row(form.photo, {'label':false}) }}
+                        </div>
+                        <div class="form-group">
+                            {{ form_row(form.introduction, {'label':false}) }}
+                        </div>
+
+                        <div class="form-group">
+                            {{ form_row(form.password, {'id': 'password'},{'label':false}) }}
+                            <span toggle="#password" class="zmdi zmdi-eye field-icon toggle-password"></span>
+                        </div>
+                        <div class="form-group">
+                            {{ form_row(form.passwordConfirm, {'label':false}) }}
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" name="submit" id="submit" class="form-submit" value="Valider"/>
+                        </div>
+                    {{  form_end(form)}}
+                    <p class="loginhere">
+                        déjà un compte ? <a href="{{ path('account_login') }}" class="loginhere-link">Connectez-vous</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="/registration/jquery/jquery.min.js"></script>
+    <script src="/registration/js/main.js"></script>
+
+{% endblock  %}

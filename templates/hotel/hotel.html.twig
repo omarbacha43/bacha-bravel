@@ -1,0 +1,272 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Les Hotels{% endblock %}
+
+{% block body %}
+    <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('images/bg_1.jpg');" data-stellar-background-ratio="0.5">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-center">
+                <div class="col-md-9 ftco-animate pb-5 text-center">
+                    <h1 class="mb-3 bread">Toujours Les Meilleurs Services</h1>
+                    <p class="breadcrumbs">
+                        <span class="mr-2"><a href="{{ path('homepage') }}">Acceuil <i class="ion-ios-arrow-forward"></i></a></span>
+                        <span>À propos <i class="ion-ios-arrow-forward"></i></span>
+                        <span>Destination<i class="ion-ios-arrow-forward"></i></span>
+                        <span>Nos Sites<i class="ion-ios-arrow-forward"></i></span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!------------ Gallery section ------------>
+    <section id="hotels" class="parallax">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-12">
+
+                    <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10 text-center">
+                        <div class="wow fadeInUp section-title" data-wow-delay="1s">
+                            <h2>Best Hotels out there<small>The great advantage of a hotel is that it is a refuge from home life.</small></h2>
+                        </div>
+                    </div>
+
+                    <!-- iso section -->
+                    <div class="iso-section wow fadeInUp text-center" data-wow-delay="0.5">
+
+                        <ul class="filter-wrapper clearfix">
+                            <li><a href="#" data-filter="*" class="selected opc-main-bg">All</a></li>
+                            <li><a href="#" class="opc-main-bg" data-filter=".london">London</a></li>
+                            <li><a href="#" class="opc-main-bg" data-filter=".paris">Paris</a></li>
+                            <li><a href="#" class="opc-main-bg" data-filter=".ny">New York</a></li>
+                            <li><a href="#" class="opc-main-bg" data-filter=".hn">Hong Kong</a></li>
+                        </ul>
+
+                        <!-- iso box section -->
+                        <div class="iso-box-section wow fadeInUp" data-wow-delay="0.9s">
+                            <div class="iso-box-wrapper col4-iso-box">
+
+                                <div class="iso-box london paris ny col-md-4 col-sm-6">
+                                    <div class="gallery-thumb">
+                                        <a href="images/hotel-01.jpg" data-lightbox-gallery="food-gallery">
+                                            <img src="images/hotel-01.jpg" class="fluid-img" alt="Gallery">
+                                            <div class="gallery-overlay">
+                                                <div class="gallery-item">
+                                                    <i class="fa fa-search"></i>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <h3>Hotel Name</h3>
+                                </div>
+
+                                <div class="iso-box london ny hn col-md-4 col-sm-6">
+                                    <div class="gallery-thumb">
+                                        <a href="images/hotel-02.jpg" data-lightbox-gallery="food-gallery">
+                                            <img src="images/hotel-02.jpg" class="fluid-img" alt="Gallery">
+                                            <div class="gallery-overlay">
+                                                <div class="gallery-item">
+                                                    <i class="fa fa-search"></i>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <h3>Hotel Name Two</h3>
+                                </div>
+
+                                <div class="iso-box hn col-md-4 col-sm-6">
+                                    <div class="gallery-thumb">
+                                        <a href="images/hotel-03.jpg" data-lightbox-gallery="food-gallery">
+                                            <img src="images/hotel-03.jpg" class="fluid-img" alt="Gallery">
+                                            <div class="gallery-overlay">
+                                                <div class="gallery-item">
+                                                    <i class="fa fa-search"></i>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <h3>Hotel Name Three</h3>
+                                </div>
+
+                                <div class="iso-box london col-md-4 col-sm-6">
+                                    <div class="gallery-thumb">
+                                        <a href="images/hotel-04.jpg" data-lightbox-gallery="food-gallery">
+                                            <img src="images/hotel-04.jpg" class="fluid-img" alt="Gallery">
+                                            <div class="gallery-overlay">
+                                                <div class="gallery-item">
+                                                    <i class="fa fa-search"></i>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <h3>Hotel Name Four</h3>
+                                </div>
+
+                                <div class="iso-box ny col-md-4 col-sm-6">
+                                    <div class="gallery-thumb">
+                                        <a href="images/hotel-05.jpg" data-lightbox-gallery="food-gallery">
+                                            <img src="images/hotel-05.jpg" class="fluid-img" alt="Gallery">
+                                            <div class="gallery-overlay">
+                                                <div class="gallery-item">
+                                                    <i class="fa fa-search"></i>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <h3>Hotel Name Five</h3>
+                                </div>
+
+                                <div class="iso-box paris lunch col-md-4 col-sm-6">
+                                    <div class="gallery-thumb">
+                                        <a href="images/hotel-06.jpg" data-lightbox-gallery="food-gallery">
+                                            <img src="images/hotel-06.jpg" class="fluid-img" alt="Gallery">
+                                            <div class="gallery-overlay">
+                                                <div class="gallery-item">
+                                                    <i class="fa fa-search"></i>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <h3>Hotel Name Six</h3>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ================  section start ================= -->
+    <section class="ftco-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-9 pr-lg-">
+                    <div class="row">
+                        {% for hotel in hotels %}
+                            <div class="col-md-5 col-lg-4 ftco-animate">
+                                <div class="project">
+                                    <div class="img">
+                                        <a href="hotel-single.html"><img src="{{ hotel.coverImage }}" class="img-fluid" alt="Colorlib Template"></a>
+                                    </div>
+                                    <div class="text">
+                                        <h4 class="price">$400</h4>
+                                        <span>3 nights</span>
+                                        <h3><a href="hotel-single.html">{{ hotel.titre }}</a></h3>
+                                        <div class="star d-flex clearfix">
+                                            <div class="mr-auto float-left">
+                                                <span class="ion-ios-star"></span>
+                                                <span class="ion-ios-star"></span>
+                                                <span class="ion-ios-star"></span>
+                                                <span class="ion-ios-star"></span>
+                                                <span class="ion-ios-star"></span>
+                                            </div>
+                                            <div class="float-right">
+                                                <span class="rate"><a href="#">(120)</a></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <a href="images/hotel-6.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
+                                        <span class="icon-expand"></span>
+                                    </a>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <div class="row mt-5">
+                        <div class="col text-center">
+                            <div class="block-27">
+                                <ul>
+                                    <li><a href="#">&lt;</a></li>
+                                    <li class="active"><span>1</span></li>
+                                    <li><a href="#">2</a></li>
+                                    <li><a href="#">3</a></li>
+                                    <li><a href="#">4</a></li>
+                                    <li><a href="#">5</a></li>
+                                    <li><a href="#">&gt;</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- end -->
+                <div class="col-lg-3 p-4 bg-light">
+                    <div class="search-wrap-1 ftco-animate">
+                        <h2 class="mb-3">Find Hotel</h2>
+                        <form action="#" class="search-property-1">
+                            <div class="row">
+                                <div class="col-lg-12 align-items-end mb-3">
+                                    <div class="form-group-hotel">
+                                        <label for="#">Places</label>
+                                        <div class="form-field">
+                                            <div class="icon"><span class="ion-ios-search"></span></div>
+                                            <input type="text" class="form-control" placeholder="Search place">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 align-items-end mb-3">
+                                    <div class="form-group">
+                                        <label for="#">Check-in date</label>
+                                        <div class="form-field">
+                                            <div class="icon"><span class="ion-ios-calendar"></span></div>
+                                            <input type="text" class="form-control checkin_date" placeholder="Check In Date">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 align-items-end mb-3">
+                                    <div class="form-group">
+                                        <label for="#">Check-out date</label>
+                                        <div class="form-field">
+                                            <div class="icon"><span class="ion-ios-calendar"></span></div>
+                                            <input type="text" class="form-control checkout_date" placeholder="Check Out Date">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 align-items-end mb-3">
+                                    <div class="form-group">
+                                        <label for="#">Price Limit</label>
+                                        <div class="form-field">
+                                            <div class="select-wrap">
+                                                <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                                                <select name="" id="" class="form-control">
+                                                    <option value="">$5,000</option>
+                                                    <option value="">$10,000</option>
+                                                    <option value="">$50,000</option>
+                                                    <option value="">$100,000</option>
+                                                    <option value="">$200,000</option>
+                                                    <option value="">$300,000</option>
+                                                    <option value="">$400,000</option>
+                                                    <option value="">$500,000</option>
+                                                    <option value="">$600,000</option>
+                                                    <option value="">$700,000</option>
+                                                    <option value="">$800,000</option>
+                                                    <option value="">$900,000</option>
+                                                    <option value="">$1,000,000</option>
+                                                    <option value="">$2,000,000</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 align-self-end">
+                                    <div class="form-group">
+                                        <div class="form-field">
+                                            <input type="submit" value="Search" class="form-control btn btn-primary">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div> <!-- end -->
+            </div>
+        </div>
+    </section>
+    <!-- ================  section end ================= -->
+
+{% endblock %}

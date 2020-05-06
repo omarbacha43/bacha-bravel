@@ -1,0 +1,75 @@
+{% extends '/admin/base.html.twig' %}
+
+{% block title %} Administration {% endblock %}
+
+{% block body %}
+    <div class="container-fluid">
+        <section class="content">
+            <h1  class="espace mt-lg-1"><strong>Statistiques</strong></h1>
+            <!-- Small boxes (Stat box) -->
+                <div class="row">
+                    <div class="col-lg-3 col-6">
+                        <!-- small box -->
+                        <div class="small-box bg-info">
+                            <div class="inner">
+                                <h3>{{ stats.destinations }}</h3>
+                                <p> <strong>Destinations</strong> <i class="material-icons" style="font-size:48px;">location_city</i></p>
+                            </div>
+                            <div class="icon">
+                                <i class="ion ion-bag"></i>
+                            </div>
+                            <a href="" class="small-box-footer">  Plus d'information   <i class="fas fa-arrow-circle-right"></i></a>
+                        </div>
+                    </div>
+                    <!-- ./col -->
+                    <div class="col-lg-3 col-6">
+                        <!-- small box -->
+                        <div class="small-box bg-warning">
+                            <div class="inner">
+                                <h3>{{ stats.sites }}</h3>
+                                <p><strong>Sites</strong><i class="material-icons" style="font-size:48px;">beach_access</i></p>
+                            </div>
+                            <div class="icon">
+                                <i class="ion ion-stats-bars"></i>
+                            </div>
+                            <a href="" class="small-box-footer">Plus d'information<i class="fas fa-arrow-circle-right"></i></a>
+                        </div>
+                    </div>
+                    <!-- ./col -->
+                    <div class="col-lg-3 col-6">
+                        <!-- small box -->
+                        <div class="small-box bg-secondary">
+                            <div class="inner">
+                                <h3>{{ stats.users }}</h3>
+
+                                <p><strong>Utulisateurs</strong> <i class="material-icons" style="font-size:48px;">assignment_ind</i></p>
+                            </div>
+                            <div class="icon">
+                                <i class="ion ion-person-add"></i>
+                            </div>
+                            <a href="" class="small-box-footer">Plus d'informations <i class="fas fa-arrow-circle-right"></i></a>
+                        </div>
+                    </div>
+                    <!-- ./col -->
+                    <div class="col-lg-3 col-6">
+                        <!-- small box -->
+                        <div class="small-box bg-danger">
+                            <div class="inner">
+                                <h3>{{ stats.commentaires }}</h3>
+
+                                <p> <strong>Commentaires</strong> <i class="material-icons" style="font-size:48px;">comment</i></p>
+                            </div>
+                            <div class="icon">
+                                <i class="ion ion-pie-graph"></i>
+                            </div>
+                            <a href="" class="small-box-footer">Plus d'informations <i class="fas fa-arrow-circle-right"></i></a>
+                        </div>
+                    </div>
+                    <!-- ./col -->
+                </div>
+                <!-- /.row -->
+        </section>
+    </div>
+
+
+{% endblock %}

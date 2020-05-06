@@ -1,0 +1,41 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}{% trans %}Administration des commentaires{% endtrans %} !{% endblock %}
+
+{% block body %}
+
+    <h1 class="espace mt-lg-5"> <strong>Gestion des Commentaires</strong> </h1
+    <div class="container-fluid">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>{% trans %}Auteur{% endtrans %}</th>
+                <th>{% trans %}Commenatire{% endtrans %}</th>
+                <th>{% trans %}Note{% endtrans %}</th>
+                <th>{% trans %}Site{% endtrans %}</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% set commentaires = pagination.data %}
+            {% for commentaire in commentaires %}
+                <tr>
+                    <td>{{ commentaire.id }}</td>
+                    <td>{{ commentaire.auteur }}</td>
+                    <td>{{ commentaire.description }}</td>
+                    <td><span class="badge badge-info">{{ commentaire.note }}</span></td>
+                    <td>{{ commentaire.site.titre }}</td>
+                    <td>
+                        <a href="{{ path('admin_commentaire_edit', {'id':commentaire.id}) }}" class="btn btn-primary"><i class="fas fa-edit"></i></a>
+                        <a href="{{ path('admin_commentaire_delete', {'id':commentaire.id}) }}" onclick="return confirm(`Voulez-vous vraiment supprimer cet utulisateur!`)" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                    </td>
+
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        {% include 'admin/partials/pagination.html.twig' with {'chemin': 'admin_commentaire_index'} %}
+
+    </div>
+{% endblock %}

@@ -1,0 +1,102 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{% trans %}Page de {% endtrans %}{{ user.prenom }} {{ user.nom }}{% endblock %}
+
+{% block body %}
+    <link rel="stylesheet" href="{{ asset('build/css/profile.css') }}">
+    <div class="container emp-profile espace mt-lg-5">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="profile-img">
+                    <img src="{{ user.photo }}" alt=""/>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="profile-head mt-3">
+                    <h5>
+                       <strong>{{ user.prenom }} {{ user.nom }}</strong>
+                    </h5>
+                    <h6>
+                       {{ user.profession }}
+                    </h6>
+                    <ul class="nav nav-tabs mt-5" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="home-tab" data-toggle="tab" role="tab" aria-controls="home" aria-selected="true"> À propos</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-2">
+                {% if app.user == user %}
+                <div class="btn-group dropright">
+                    <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Editer
+                    </button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="{{path('account_profile')}}">Editer profile</a>
+                        <a class="dropdown-item" href="{{path('account_password')}}">Editer mot de passe</a>
+                        <a class="dropdown-item" href="{{path('competence_edit')}}">Editer mes compétences</a>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="profile-work">
+                    <p><strong>Compétences</strong></p>
+                    {% for competence in user.competences %}
+                        <a href="">{{ competence.titre }}</a><br/>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="tab-content profile-tab" id="myTabContent">
+                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Nom</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>{{ user.nom}}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>prenom</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>{{ user.prenom }}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Email</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>{{ user.email }}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Telephone</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>{{ user.telephone }}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Profession</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>{{ user.profession }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

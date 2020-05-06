@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <section class="hero-wrap" style="background-image: url({{ destination.photo }});" data-stellar-background-ratio="0.5">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row no-gutters slider-text align-items-center justify-content-start">
+                <div class="col-md-9 ftco-animate pb-4">
+                    <h1 class="mb-3 bread">{{ destination.destination }}</h1>
+                    <p><a href="{{ path('contact_create') }}" class="btn btn-primary py-2 px-4">Reserver Destination</a> <a href="#" class="btn btn-black py-2 px-4">Regarder la video</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="ftco-section ftco-services-2 ftco-no-pt">
+        <div class="container espace mt-lg-1">
+            <div class="row">
+                {% for site in destination.siteTouristiques %}
+                    <div class="col-md-12 tour-wrap mb-5">
+                        <div class="row">
+                            <div class="col-md-6 d-flex ftco-animate">
+                                <div class="img align-self-stretch" style="background-image: url({{ site.photo }});"></div>
+                            </div>
+                            <div class="col-md-6 ftco-animate">
+                                <div class="text py-5">
+                                    <h3>
+                                        <a href="{{ path('site_show', {'id':site.id}) }}">{{ site.titre }}</a>
+                                        {% if app.user %}
+                                            <a href="{{ path('site_editor', {'id':site.id}) }}"><i class="material-icons">&#xe3c9;</i></i></a>
+                                            <a href="{{ path('site_delete', {'id':site.id}) }}" onclick="return confirm(`Voulez-vous vraiment supprimer cet site !`)"><i class="material-icons">&#xe872;</i></a>
+                                        {% endif %}
+                                    </h3>
+                                    <p>{{ site.introduction }}</p>
+                                    <p><a href="{{ path('site_show', {'id':site.id}) }}" class="btn btn-secondary">Details</a> <a href="{{ path('contact_create')}}" class="btn btn-primary">Reserver</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section> <!-- .section -->
+{% endblock %}

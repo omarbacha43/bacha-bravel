@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nos evenements{% endblock %}
+
+{% block body %}
+
+    <section class="ftco-section bg-light" id="blog-section">
+        <div class="container">
+            <div class="row justify-content-center mb-5 pb-5">
+                <div class="col-md-7 heading-section text-center ftco-animate">
+                    <span class="subheading">Blog</span>
+                    <h2 class="mb-4">Notre Blog</h2>
+                    <p>Bienvenue dans notre blog, ici vous trouverai tout les evenemenent professionel realsée au cours des ses années !</p>
+                </div>
+            </div>
+            <div class="row d-flex">
+                {% set blogs = pagination.data %}
+                {% for blog in blogs %}
+                    <div class="col-md-6 col-lg-4 d-flex ftco-animate">
+                        <div class="blog-entry justify-content-end">
+                            <a href="{{ path('blog_show', {'id':blog.id}) }}" class="block-20" style="background-image: url({{ blog.photo }}); width: 350px">
+                            </a>
+                            <div class="text float-right d-block">
+                                <div class="d-flex align-items-center pt-2 mb-4 topp">
+                                    <div class="one mr-2">
+                                        <span class="day">{{ blog.date | date('d') }}</span>
+                                    </div>
+                                    <div class="two">
+                                        <span class="yr">{{ blog.date | date('Y') }}</span>
+                                        <span class="mos">{{ blog.date | date('m')}}</span>
+                                    </div>
+                                </div>
+                                <h3 class="heading"><a href="{{ path('blog_show', {'id':blog.id}) }}">{{ blog.titre }}</a></h3>
+                                <p>{{ blog.introduction }}.</p>
+                                <div class="d-flex align-items-center mt-4 meta">
+                                    <p class="mb-0"><a href="{{ path('blog_show', {'id':blog.id}) }}" class="btn btn-primary">Voir plus <span class="ion-ios-arrow-round-forward"></span></a></p>
+                                    <p class="ml-auto mb-0">
+                                        <a href="{{ path('blog_show', {'id':blog.id}) }}" class="meta-chat"><span class="icon-chat"></span>{{ blog.commentaire | length }}</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

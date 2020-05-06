@@ -1,0 +1,26 @@
+<div class="row mt-5">
+    <div class="col text-center">
+        <div class="block-27">
+            {% set page = pagination.page %}
+            {% set pages = pagination.pages %}
+            <ul>
+                {% if page > 1 %}
+                    <li>
+                        <a href="{{ path(chemin, {'page':page-1}) }}">&lt;</a>
+                    </li>
+                {% endif %}
+
+                {% for i in 1..pages %}
+                    {% if i > 0 %}
+                        <li class="{% if page == i %}active {% endif %}">
+                            <a href="{{ path(chemin, {'page':i}) }}"> {{ i }} </a>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+                {% if page < pages %}
+                    <li><a href="{{ path(chemin,{"page":page+1}) }}">&gt;</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</div>

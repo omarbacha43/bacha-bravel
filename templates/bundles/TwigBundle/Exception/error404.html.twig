@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+    <link rel="stylesheet" href="{{ asset('build/css/error.css') }}">
+
+    <div id="notfound">
+        <div class="notfound">
+            <div class="notfound-404">
+                <h1>Oops!</h1>
+                <h2>404 - Page introuvable </h2>
+            </div>
+            <a href="{{ path('homepage') }}">Retour Acceuil</a>
+        </div>
+    </div>
+
+{% endblock %}

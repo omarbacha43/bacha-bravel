@@ -1,0 +1,16 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}{% trans %}Edition du reservation{% endtrans %} n° {{ reservation.id }}{% endblock %}
+
+{% block body %}
+    <div class="container-fluid">
+        <h1>{% trans %}Modification de la reservation numéro{% endtrans %}°{{ reservation.id }}</h1>
+        <label >{% trans %}Date départ{% endtrans %} </label><br>
+        <input type="text" value="{{reservation.annonce.dateHeureDepart | date('d/m/Y H:i')}}" disabled>
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <button type="submit" class="btn btn-primary">{% trans %}Enregistrer{% endtrans %}</button>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}
+

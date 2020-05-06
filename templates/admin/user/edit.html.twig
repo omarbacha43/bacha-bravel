@@ -1,0 +1,34 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}{% trans %}Ajout d'un role pour l'utulisateur numéero {% endtrans %} {{ user.id }}{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="col-md-8">
+            <div class="tab-content profile-tab" id="myTabContent">
+                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                    <h2 class="espace mt-lg-5"><strong>Les roles attribuer:</strong></h2>
+                    <div class="row">
+                        {% for role in user.userRoles %}
+                            <div class="col-md-6">
+                                {{ role.title }}
+                                <label></label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>
+                                    <a href="{{ path('role_delete', {'id':role.id}) }}" onclick="return confirm(`Voulez-vous vraiment supprimer ce role !`)">supprimer</a>
+                                </p>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <h2><strong>Ajouter un role :</strong></h2>
+                    {{ form_start(form) }}
+                    {{ form_widget(form) }}
+                    <button type="submit" onclick="return confirm(`Etes vous-sure de vouloir lui ajouter ce role ?`)" class="btn btn-primary">{% trans %}Ajouter{% endtrans %}</button>
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

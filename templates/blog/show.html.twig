@@ -1,0 +1,109 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nos magnifique annonces{% endblock %}
+
+{% block body %}
+
+    <section class="hero-wrap hero-wrap-2" style="background-image: url('/images/bg_4.jpg');" data-stellar-background-ratio="0.5">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row no-gutters slider-text align-items-end justify-content-start">
+                <div class="col-md-9 ftco-animate pb-4">
+                    <h1 class="mb-3 bread">Notre histoires</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="ftco-section">
+        <div class="container">
+            <h2 class="mb-3">
+                {{ blog.titre }}
+                {% if app.user %}
+                    <a href="{{ path('blog_editor', {'id':blog.id}) }}"><i class="material-icons">&#xe3c9;</i></i></a>
+                    <a href="{{ path('blog_delete', {'id':blog.id}) }}" onclick="return confirm(`Voulez-vous vraiment supprimer cette evenemenent !`)"><i class="material-icons">&#xe872;</i></a>
+                {% endif %}
+            </h2>
+
+            <div class="row">
+                <div class="col-md-12 room-wrap">
+                    <div class="row">
+                        <div class="col-md-7 d-flex ftco-animate">
+                            <div class="img align-self-stretch" style="background-image: url({{ blog.photo }});"></div>
+                        </div>
+                        <div class="col-md-5 ftco-animate">
+                            <div class="text py-5">
+                                <p>{{ blog.description | raw }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8 ftco-animate">
+                    <p>
+                        <img src="/images/image_4.jpg" alt="" class="img-fluid">
+                    </p>
+                    <div class="about-author d-flex p-4 bg-light">
+                        <div class="bio mr-5">
+                            <img src="/images/person_1.jpg" alt="Image placeholder" class="img-fluid mb-4">
+                        </div>
+                        <div class="desc">
+                            <h3>George Washington</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus itaque, autem necessitatibus voluptate quod mollitia delectus aut, sunt placeat nam vero culpa sapiente consectetur similique, inventore eos fugit cupiditate numquam!</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 tour-wrap">
+                    <div class="pt-5">
+                        <h3 class="mb-5" style="border-bottom: 1px solid #f2f2f2;">{{ blog.commentaire | length }} Commentaire(s)</h3>
+                        <ul class="comment-list">
+                            {% for commentaire in blog.commentaire %}
+                                <li class="comment">
+                                    <div class="vcard bio">
+                                        <img src="{{ commentaire.photo }}" alt="Image placeholder">
+                                    </div>
+                                    <div class="comment-body">
+                                        <h3>{{ commentaire.auteur }}</h3>
+                                        <div class="meta">{{ commentaire.createdAt | date('d/m/Y H:i') }}</div>
+                                        <label class="form-check-label" for="exampleCheck1">
+                                            <p class="rate">
+                                            <span>
+                                                {% for i in 1..commentaire.note %}
+                                                    <i class="icon-star"></i>
+                                                {% endfor %}
+                                            </span>
+                                            </p>
+                                        </label>
+                                        <p>{{ commentaire.description }}</p>
+                                    </div>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                        <!-- END comment-list -->
+
+                        <div class="comment-form-wrap pt-5">
+                            <h3 class="mb-5">Laisser un commentaire </h3>
+                            {{ form_start(form) }}
+                            <div class="form-group">
+                                {{ form_row(form.auteur) }}
+                            </div>
+                            <div class="form-group">
+                                {{ form_row(form.note) }}
+                            </div>
+
+                            <div class="form-group">
+                                {{ form_row(form.description, {'label':"Message "}) }}
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" value="Poster" class="btn py-3 px-4 btn-primary">
+                            </div>
+
+                            {{ form_end(form) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section> <!-- .section -->
+
+{% endblock %}

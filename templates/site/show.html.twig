@@ -1,0 +1,116 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nos magnifique annonces{% endblock %}
+
+{% block body %}
+
+    <section class="hero-wrap" style="background-image: url({{ site.destination.photo }});" data-stellar-background-ratio="0.5">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row no-gutters slider-text align-items-center justify-content-start">
+                <div class="col-md-9 ftco-animate pb-4">
+                    <h1 class="mb-3 bread"> {{ site.destination.destination }}</h1>
+                    <p><a href="#" class="btn btn-primary py-2 px-4">Book this hotel</a> <a href="#" class="btn btn-black py-2 px-4">Watch Video</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="ftco-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 room-wrap">
+                    <div class="row">
+                        <div class="col-md-7 d-flex ftco-animate">
+                            <div class="img align-self-stretch" style="background-image: url({{ site.photo }});"></div>
+                        </div>
+                        <div class="col-md-5 ftco-animate">
+                            <div class="text py-5">
+                                <h3>
+                                    <a href="#">{{ site.titre }}</a>
+                                    {% if app.user %}
+                                        <a href="{{ path('site_editor', {'id':site.id}) }}"><i class="material-icons">&#xe3c9;</i></i></a>
+                                        <a href="{{ path('site_delete', {'id':site.id}) }}" onclick="return confirm(`Voulez-vous vraiment supprimer cet site touristique !`)"><i class="material-icons">&#xe872;</i></a>
+                                    {% endif %}
+                                </h3>
+                                <p class="pos">de <span class="price">{{ site.destination.destination }}</span></p>
+                                <p>{{ site.description | raw }}</p>
+                                <p><a href="{{ path('contact_create') }}" class="btn btn-primary">Reserver</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 room-wrap room-wrap-thumb mt-4">
+                    <div class="row">
+                        {% for hotel in site.hotels %}
+                             <div class="col-md-3 ftco-animate">
+                            <a href="#" class="d-flex thumb">
+                                <div class="img align-self-stretch" style="background-image: url({{ hotel.coverImage }});"></div>
+                                <div class="text pl-3 py-3">
+                                    <h3>
+                                        {{ hotel.titre }}
+                                        {% if app.user %}
+                                            <a href="{{ path('hotel_editor', {'id':hotel.id}) }}"><i class="material-icons">&#xe3c9;</i></i></a>
+                                            <a href="{{ path('hotel_delete', {'id':hotel.id}) }}" onclick="return confirm(`Voulez-vous vraiment supprimer cet hotel !`)"><i class="material-icons">&#xe872;</i></a>
+                                        {% endif %}
+                                    </h3>
+                                </div>
+                            </a>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="col-md-12 tour-wrap">
+                    <div class="pt-5">
+                        <h3 class="mb-5" style="border-bottom: 1px solid #f2f2f2;">{{ site.commentaires | length }} Commentaire(s)</h3>
+                        <ul class="comment-list">
+                            {% for commentaire in site.commentaires %}
+                            <li class="comment">
+                                <div class="vcard bio">
+                                    <img src="{{ commentaire.photo }}" alt="Image placeholder">
+                                </div>
+                                <div class="comment-body">
+                                    <h3>{{ commentaire.auteur }}</h3>
+                                    <div class="meta">{{ commentaire.createdAt | date('d/m/Y H:i') }}</div>
+                                    <label class="form-check-label" for="exampleCheck1">
+                                        <p class="rate">
+                                            <span>
+                                                {% for i in 1..commentaire.note %}
+                                                    <i class="icon-star"></i>
+                                                {% endfor %}
+                                            </span>
+                                        </p>
+                                    </label>
+                                    <p>{{ commentaire.description }}</p>
+                                </div>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                        <!-- END comment-list -->
+
+                        <div class="comment-form-wrap pt-5">
+                            <h3 class="mb-5">Laisser un commentaire </h3>
+                            {{ form_start(form) }}
+                                <div class="form-group">
+                                    {{ form_row(form.auteur) }}
+                                </div>
+                                <div class="form-group">
+                                    {{ form_row(form.note) }}
+                                </div>
+
+                                <div class="form-group">
+                                    {{ form_row(form.description, {'label':"Message "}) }}
+                                </div>
+                                <div class="form-group">
+                                    <input type="submit" value="Poster" class="btn py-3 px-4 btn-primary">
+                                </div>
+
+                            {{ form_end(form) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> <!-- .section -->
+
+{% endblock %}

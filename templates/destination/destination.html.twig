@@ -1,0 +1,106 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nos magnifique annonces{% endblock %}
+
+{% block body %}
+	<section class="hero-wrap hero-wrap-2" style="background-image: url('images/destination-single.jpg');" data-stellar-background-ratio="0.5">
+		<div class="overlay"></div>
+		<div class="container">
+			<div class="row no-gutters slider-text align-items-end justify-content-start">
+				<div class="col-md-9 ftco-animate pb-4">
+					<h1 class="mb-3 bread">Trouvez votre destination ici</h1>
+					<p class="breadcrumbs"><span class="mr-2"><a href="{{ path('homepage') }}">Acceuil <i class="ion-ios-arrow-forward"></i></a></span> <span>Destination <i class="ion-ios-arrow-forward"></i></span></p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center pb-0 pb-mb-5 pt-5 pt-md-0">
+				<div class="col-md-12 heading-section ftco-animate">
+					<span class="subheading">Voyage &amp; Tourisme</span>
+					<h2 class="mb-4">Où voudrez-vous y'aller ?</h2>
+					<p>Les plus belles destinations pour des vacances de rêve au soleil</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="search-wrap-1 ftco-animate p-4">
+						<div class="search-property-1">
+							{{ form_start(form) }}
+							<div class="row">
+								<div class="col-lg align-items-end">
+									<div class="form-group">
+										<div class="form-field">
+											<div class="icon"><span class="ion-ios-search"></span></div>
+											{{ form_row(form.destination) }}
+										</div>
+									</div>
+								</div>
+
+								<div class="col-lg align-self-end">
+									<div class="form-group">
+										<div class="form-field">
+											<input type="submit" value="Search" class="form-control btn btn-primary">
+										</div>
+									</div>
+								</div>
+							</div>
+							{{ form_end(form) }}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="row">
+						{%  set destinations = pagination.data %}
+						{%  for destination in destinations %}
+						<div class="col-md-6 col-lg-4 ftco-animate">
+							<div class="project">
+								<div class="img imgParent">
+									<a href="{{ path('destination_show', {'id':destination.id}) }}"><img src="{{ destination.photo }}" class="img-fluid" alt="Colorlib Template"></a>
+								</div>
+								<div class="text">
+									<h4 class="price"><span class="old-price mr-2">{% if destination.ancienPrix != 0 %}${{ destination.ancienPrix }}  {% endif %}</span>${{ destination.prix }}</h4>
+									<span>15 Days Tour</span>
+									<h3>
+										<a href="{{ path('destination_show', {'id':destination.id}) }}">{{ destination.destination }}</a>
+										{% if app.user %}
+											<a href="{{ path('destination_editor', {'id':destination.id}) }}"><i class="material-icons">&#xe3c9;</i></i></a>
+											<a href="{{ path('destination_delete', {'id':destination.id}) }}" onclick="return confirm(`Voulez-vous vraiment supprimer cette destination !`)"><i class="material-icons">&#xe872;</i></a>
+										{% endif %}
+									</h3>
+									<div class="star d-flex clearfix">
+										<div class="mr-auto float-left">
+											<span class="ion-ios-star"></span>
+											<span class="ion-ios-star"></span>
+											<span class="ion-ios-star"></span>
+											<span class="ion-ios-star"></span>
+											<span class="ion-ios-star"></span>
+										</div>
+										<div class="float-right">
+											<span class="rate"><a href="#">(120)</a></span>
+										</div>
+									</div>
+								</div>
+								<a href="images/destination-1.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
+									<span class="icon-expand"></span>
+								</a>
+							</div>
+						</div>
+						{% endfor %}
+					</div>
+				</div> <!-- end -->
+			</div>
+		</div>
+	</section>
+
+	{% if pagination != null %}
+		{% include '/partials/pagination.html.twig' with {'chemin': 'destination_index'} %}
+	{% endif %}
+
+{% endblock %}

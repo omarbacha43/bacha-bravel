@@ -1,0 +1,39 @@
+
+@import url('./animate.css');
+@import url('./aos.css');
+@import url('./bootstrap.min.css');
+@import url('./flaticon.css');
+@import url('./icomoon.css');
+@import url('./ionicons.min.css');
+@import url('./magnific-popup.css');
+@import url('./open-iconic-bootstrap.min.css');
+@import url('./owl.carousel.min.css');
+@import url('./owl.theme.default.min.css');
+@import url('./style.css');
+
+.imgParent {
+    width: 100%; /* I took the width from your post and placed it in css */
+    height: 280px;
+}
+
+/* This will style any <img> element in .parent div */
+.imgParent img {
+    height: 100%;
+    width: 100%;
+}
+
+.espace {
+    padding-top: 1.65em;
+    margin-top: -1.65em;
+}
+
+.avatar {
+    max-width: 128px;
+    max-height: 128px;
+    border-radius: 50%;
+}
+
+.avatar-mini {
+    max-width: 25px;
+    max-height: 25px;
+}

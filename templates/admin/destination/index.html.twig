@@ -1,0 +1,38 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Administration des destination !{% endblock %}
+
+{% block body %}
+
+    <h1 class="espace mt-lg-1"> <strong>Gestion des destination</strong> </h1>
+    <div class="container-fluid">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>{% trans %}Destination{% endtrans %}</th>
+                <th>{% trans %}Auteur{% endtrans %}</th>
+                <th class="text-center">{% trans %}Nombre de site{% endtrans %}</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% set destinations = pagination.data %}
+            {% for destination in destinations %}
+                <tr>
+                    <td>{{ destination.id }}</td>
+                    <td>{{ destination.destination }}</td>
+                    <td>{{ destination.auteur }}</td>
+                    <td class="text-center"><span class="badge badge-primary rounded"> {{ destination.siteTouristiques |length }}</span></td>
+                    <td>
+                        <a href="{{ path('admin_destination_edit', {'id':destination.id}) }}" class="btn btn-primary"><i class="fas fa-edit"></i></a>
+                        <a href="{{ path('admin_destination_delete', {'id':destination.id}) }}" onclick="return confirm(`Voulez-vous vraiment supprimer cette destination !`)" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                    </td>
+
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        {% include 'admin/partials/pagination.html.twig' with {'chemin': 'admin_destination_index'} %}
+    </div>
+{% endblock %}

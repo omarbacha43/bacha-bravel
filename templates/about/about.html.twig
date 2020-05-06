@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}À propos de nous{% endblock %}
+
+{% block body %}
+
+    <section class="ftco-counter img ftco-section ftco-no-pt ftco-no-pb" id="about-section">
+        <div class="container">
+            <h1 class="espace mt-lg-1"></h1>
+            <div class="row no-gutters d-flex">
+                <div class="col-md-6 col-lg-5 d-flex">
+                    <div class="img d-flex align-self-stretch align-items-center" style="background-image:url(images/about.jpg);">
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-7 px-lg-5 py-md-5 bg-darken">
+                    <div class="py-md-5">
+                        <div class="row justify-content-start pb-3">
+                            <div class="col-md-12 heading-section ftco-animate p-5 p-lg-0">
+                                <span class="subheading">Le voyage est parmis nous </span>
+                                <h2 class="mb-4">Qui sommes-nous ?</h2>
+                                <p>
+                                    Nous Bacha Travel Tourism Cargo Agency est désireux de travailler avec vous en fournissant l'offre la meilleure et compétitive sur ce marché.
+                                    Notre objectif est de construire une relation avec vous sur la confiance, la confiance.
+                                    L'industrie du voyage à Djibouti en est à ses balbutiements en termes de croissance et
+                                    la majorité des agences de voyage dans le pays ne fournissent que des services de billetterie pour les clients.
+                                </p>
+                                <p>
+                                    Chez Bacha travels, nous avons décidé de donner aux clients la possibilité d'ajouter quatre autres services, à savoir des visites guidées,
+                                    une assistance à l'aéroport, une réservation d'hôtel / appartement et des expéditions de fret avec des services de billetterie.
+                                </p>
+                                <p>
+                                    Chez Bacha travels, nous travaillons constamment à être pionniers et à introduire les services fournis aux clients dans d'autres pays.
+                                    Chez Bacha Travels, nous voulons créer une marque associée à la qualité et à la fiabilité en fournissant ce que nous promettons.
+                                </p>
+                                <p>
+                                    Nous créons également un effet de levier supplémentaire en établissant des relations et
+                                    des représentations avec des alliés stratégiques appropriés dans d'autres pays.
+                                </p>
+                                <p><a href="{{ path('contact_create') }}" class="btn btn-primary py-3 px-4">Nous contacter</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
+

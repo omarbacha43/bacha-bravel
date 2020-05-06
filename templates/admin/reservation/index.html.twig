@@ -1,0 +1,38 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}{% trans %}Administration des reservations{% endtrans %} !{% endblock %}
+
+{% block body %}
+
+    <h1 class="my-5"> {% trans %}Gestion des Reservations{% endtrans %} </h1
+    <div class="container-fluid">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>{% trans %}Date{% endtrans %}</th>
+                <th>{% trans %}Visiteur{% endtrans %}</th>
+                <th>{% trans %}Annonce{% endtrans %}</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            {% set reservations = pagination.data %}
+            {% for reservation in reservations %}
+                <tr>
+                    <td>{{ reservation.id }}</td>
+                    <td>{{ reservation.createdAt | date('d/m/Y H:i') }}</td>
+                    <td><img src="{{ reservation.utulisateur.photo }}" class="avatar avatar-micro mr-2" alt="">{{ reservation.utulisateur.prenom }} {{ reservation.utulisateur.nom }}</td>
+                    <td>{{ reservation.annonce.destDepart }} à {{ reservation.annonce.destArrive }} (id annonce:{{ reservation.annonce.id }})</td>
+                    <td>
+                        <a href="{{ path('admin_reservation_edit', {'id':reservation.id}) }}" class="btn btn-primary"><i class="fas fa-edit">editer</i></a>
+                        <a href="{{ path('admin_reservation_delete', {'id':reservation.id}) }}" class="btn btn-danger"><i class="fas fa-trash">supp</i></a>
+                    </td>
+
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        {% include 'admin/partials/pagination.html.twig' with {'chemin': 'admin_reservation_index'} %}
+    </div>
+{% endblock %}
